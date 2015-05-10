@@ -1,8 +1,9 @@
 package ro.dezertatie.user;
 
-
+import javax.ejb.Stateless;
 import java.util.Collection;
 
+@Stateless
 public class EjbUserService implements UserService {
 
     public User create(User entity) {
