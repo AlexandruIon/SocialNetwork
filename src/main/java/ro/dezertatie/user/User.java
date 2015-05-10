@@ -1,5 +1,9 @@
 package ro.dezertatie.user;
 
 
-public class User {
+import ro.dezertatie.common.domain.BaseEntity;
+
+public class User extends BaseEntity<Long> {
+
+
 }
