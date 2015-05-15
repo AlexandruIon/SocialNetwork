@@ -1,17 +1,63 @@
 package ro.dezertatie.common.domain;
 
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 
-public class BaseEntity<I extends Serializable> {
+@MappedSuperclass
+public class BaseEntity<I extends Serializable> implements Serializable {
 
-    private I id;
+	private static final long serialVersionUID = 1L;
+	private I id;
 
-    public BaseEntity() {
+	protected BaseEntity() {
+	}
 
-    }
+	protected BaseEntity(I Id) {
+		this.id = id;
+	}
 
-    public BaseEntity(I Id) {
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public I getId() {
+		return id;
+	}
+
+	public void setId(I id) {
+		this.id = id;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (id == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		BaseEntity<?> other = (BaseEntity<?>) obj;
+		return id.equals(other.getId());
+	}
+
+	@Override
+	public String toString() {
+		return this.getClass().getName() + " [ID=" + id + "]";
+	}
 }

@@ -10,26 +10,35 @@ import java.util.Collection;
 
 public class JpaCrudDao<T extends BaseEntity<I>, I extends Serializable> implements CrudDao<T, I> {
 
-    @PersistenceContext
-    private EntityManager em;
+	protected static final IllegalArgumentException NULL_ARGUMENT_EXCEPTION =
+			new IllegalArgumentException("Null argument is not allowed.");
 
-    public T create(T entity) {
-        return null;
-    }
+	@PersistenceContext
+	protected EntityManager entityManager;
 
-    public T update(T entity) {
-        return null;
-    }
+	public T create(T entity) {
+		if (entity == null) {
+			throw NULL_ARGUMENT_EXCEPTION;
+		}
+		entityManager.persist(entity);
+		entityManager.flush();
+		entityManager.refresh(entity);
+		return entity;
+	}
 
-    public void delete(T entity) {
+	public T update(T entity) {
+		return null;
+	}
 
-    }
+	public void delete(T entity) {
 
-    public T findOne(I id) {
-        return null;
-    }
+	}
 
-    public Collection<T> findAll() {
-        return null;
-    }
+	public T findOne(I id) {
+		return null;
+	}
+
+	public Collection<T> findAll() {
+		return null;
+	}
 }

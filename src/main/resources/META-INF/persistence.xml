@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             version="2.1">
+
+	<persistence-unit name="mongo_pu" transaction-type="JTA">
+
+		<provider>com.impetus.kundera.KunderaPersistence</provider>
+
+		<properties>
+			<property name="kundera.nodes" value=""/>
+			<property name="kundera.port" value="27017"/>
+			<property name="kundera.keyspace" value="hcs"/>
+			<property name="kundera.dialect" value="mongodb"/>
+			<property name="kundera.client" value="MongoDB"/>
+			<property name="index_home_dir" value="/var/tmp"/>
+		</properties>
+	</persistence-unit>
+</persistence>
