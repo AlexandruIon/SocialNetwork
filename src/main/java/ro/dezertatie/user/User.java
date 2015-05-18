@@ -4,7 +4,13 @@ package ro.dezertatie.user;
 import ro.dezertatie.common.domain.BaseEntity;
 import ro.dezertatie.person.Person;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class User extends BaseEntity<Long> {
+
+	private static final long serialVersionUID = 1L;
 
 	private String username;
 	private String password;
@@ -17,6 +23,7 @@ public class User extends BaseEntity<Long> {
 		this.password = password;
 	}
 
+	@Column(name = "column")
 	public String getUsername() {
 		return username;
 	}
@@ -25,6 +32,7 @@ public class User extends BaseEntity<Long> {
 		this.username = username;
 	}
 
+	@Column(name = "password")
 	public String getPassword() {
 		return password;
 	}
@@ -33,6 +41,7 @@ public class User extends BaseEntity<Long> {
 		this.password = password;
 	}
 
+	@Column(name = "enabled")
 	public Boolean getEnabled() {
 		return enabled;
 	}
@@ -41,6 +50,10 @@ public class User extends BaseEntity<Long> {
 		this.enabled = enabled;
 	}
 
+	@Column(name = "person_id")
+	@JoinTable(name = "person",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "person_id"))
 	public Person getPerson() {
 		return person;
 	}
