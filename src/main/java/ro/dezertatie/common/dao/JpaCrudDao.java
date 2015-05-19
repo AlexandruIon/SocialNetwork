@@ -16,7 +16,7 @@ public class JpaCrudDao<T extends BaseEntity<I>, I extends Serializable> impleme
 	@PersistenceContext
 	protected EntityManager entityManager;
 
-	public T create(T entity) {
+	public <S extends T> S save(S entity) {
 		if (entity == null) {
 			throw NULL_ARGUMENT_EXCEPTION;
 		}
@@ -26,11 +26,19 @@ public class JpaCrudDao<T extends BaseEntity<I>, I extends Serializable> impleme
 		return entity;
 	}
 
-	public T update(T entity) {
+	public <S extends T> Collection<S> save(Iterable<S> entities) {
 		return null;
 	}
 
+	public void delete(I id) {
+
+	}
+
 	public void delete(T entity) {
+
+	}
+
+	public void delete(Iterable<? extends T> entities) {
 
 	}
 
@@ -38,7 +46,19 @@ public class JpaCrudDao<T extends BaseEntity<I>, I extends Serializable> impleme
 		return null;
 	}
 
+	public T findOneDetached(I id) {
+		return null;
+	}
+
 	public Collection<T> findAll() {
 		return null;
+	}
+
+	public Collection<T> findAll(Iterable<I> ids) {
+		return null;
+	}
+
+	public long count() {
+		return 0;
 	}
 }

@@ -8,25 +8,31 @@ import java.util.Collection;
 @Path("/user")
 public class UserResource {
 
-    @Inject
-    private UserService userService;
+	@Inject
+	private UserService userService;
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    public User createUser(User user) {
-        return userService.create(user);
-    }
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public User createUser(User user) {
+		return userService.create(user);
+	}
 
-    @GET
-    public Collection<User> getUsers() {
-        return userService.findAll();
-    }
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Collection<User> getUsers() {
+		return userService.getAll();
+	}
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{userId}")
-    public User getUser(@PathParam("userId") Long userId) {
-        return userService.findOne(userId);
-    }
+	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
+	public void deleteUser(User user) {
+		userService.delete(user);
+	}
 
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{userId}")
+	public User getUser(@PathParam("userId") Long userId) {
+		return userService.get(userId);
+	}
 }

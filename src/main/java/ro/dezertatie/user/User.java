@@ -4,7 +4,10 @@ package ro.dezertatie.user;
 import ro.dezertatie.common.domain.BaseEntity;
 import ro.dezertatie.person.Person;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
@@ -50,10 +53,8 @@ public class User extends BaseEntity<Long> {
 		this.enabled = enabled;
 	}
 
+	@OneToOne
 	@Column(name = "person_id")
-	@JoinTable(name = "person",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "person_id"))
 	public Person getPerson() {
 		return person;
 	}
