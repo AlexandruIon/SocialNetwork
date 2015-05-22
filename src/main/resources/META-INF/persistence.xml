@@ -1,20 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-             version="2.1">
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+	https://raw.github.com/impetus-opensource/Kundera/Kundera-2.0.4/kundera-core/src/test/resources/META-INF/persistence_2_0.xsd"
+             version="2.0">
 
-	<persistence-unit name="mongo_pu" transaction-type="JTA">
-
+	<persistence-unit name="mongo-pu">
 		<provider>com.impetus.kundera.KunderaPersistence</provider>
-
+		<class>ro.dezertatie.user.User</class>
 		<properties>
+
+			<property name="jboss.as.jpa.managed" value="false"/>
 			<property name="kundera.nodes" value="52.11.182.96"/>
 			<property name="kundera.port" value="27017"/>
-			<property name="kundera.keyspace" value="hcs"/>
-			<property name="kundera.dialect" value="mongodb"/>
-			<property name="kundera.client" value="MongoDB"/>
-			<property name="index_home_dir" value="/var/tmp"/>
+			<property name="kundera.keyspace" value="datakeeper"/>
+			<property name="kundera.client.lookup.class"
+			          value="com.impetus.client.mongodb.MongoDBClientFactory"/>
+			<property name="kundera.cache.provider.class"
+			          value="com.impetus.kundera.cache.ehcache.EhCacheProvider"/>
+			<property name="kundera.cache.config.resource" value="/ehcache-test.xml"/>
 		</properties>
 	</persistence-unit>
+
+
 </persistence>

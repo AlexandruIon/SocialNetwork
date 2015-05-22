@@ -1,10 +1,10 @@
 package ro.dezertatie.common.dao;
 
 
+import ro.dezertatie.common.EntityManagerFactoryProducer;
 import ro.dezertatie.common.domain.BaseEntity;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -13,13 +13,17 @@ public class JpaCrudDao<T extends BaseEntity<I>, I extends Serializable> impleme
 	protected static final IllegalArgumentException NULL_ARGUMENT_EXCEPTION =
 			new IllegalArgumentException("Null argument is not allowed.");
 
-	@PersistenceContext
-	protected EntityManager entityManager;
+
+	private EntityManagerFactoryProducer entityManagerFactory;
+
+	private EntityManager entityManager;
+
 
 	public <S extends T> S save(S entity) {
 		if (entity == null) {
 			throw NULL_ARGUMENT_EXCEPTION;
 		}
+		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.persist(entity);
 		entityManager.flush();
 		entityManager.refresh(entity);
