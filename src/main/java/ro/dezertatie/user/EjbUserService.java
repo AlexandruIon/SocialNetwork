@@ -39,7 +39,7 @@ public class EjbUserService implements UserService {
 		deleteById(entity.getId());
 	}
 
-	public void deleteById(Long id) {
+	public void deleteById(String id) {
 		try {
 			userDao.delete(id);
 		} catch (IllegalArgumentException e) {
@@ -47,7 +47,7 @@ public class EjbUserService implements UserService {
 		}
 	}
 
-	public User get(Long id) {
+	public User get(String id) {
 		User user;
 		try {
 			user = userDao.findOne(id);

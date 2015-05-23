@@ -10,23 +10,42 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
-public class User extends BaseEntity<Long> {
+@Table(name = "users", schema = "dezertatie@mongo-pu")
+public class User extends BaseEntity<String> {
 
 	private static final long serialVersionUID = 1L;
 
+	//	@Id
+//	@Column(name="id")
+//	private String id;
+	@Column(name = "column")
 	private String username;
+	@Column(name = "password")
 	private String password;
+	@Column(name = "enabled")
 	private Boolean enabled = Boolean.TRUE;
+	@Column(name = "person_id")
 	private Person person;
 
-	public User(Long Id, String username, String password) {
+
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+
+	public User() {
+	}
+
+	public User(String Id, String username, String password) {
 		super(Id);
 		this.username = username;
 		this.password = password;
 	}
 
-	@Column(name = "column")
+
 	public String getUsername() {
 		return username;
 	}
@@ -35,7 +54,7 @@ public class User extends BaseEntity<Long> {
 		this.username = username;
 	}
 
-	@Column(name = "password")
+
 	public String getPassword() {
 		return password;
 	}
@@ -44,7 +63,7 @@ public class User extends BaseEntity<Long> {
 		this.password = password;
 	}
 
-	@Column(name = "enabled")
+
 	public Boolean getEnabled() {
 		return enabled;
 	}
@@ -54,7 +73,7 @@ public class User extends BaseEntity<Long> {
 	}
 
 	@OneToOne
-	@Column(name = "person_id")
+
 	public Person getPerson() {
 		return person;
 	}

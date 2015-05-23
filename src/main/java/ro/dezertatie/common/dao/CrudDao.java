@@ -66,18 +66,6 @@ public interface CrudDao<T extends BaseEntity<I>, I extends Serializable> {
     T findOne(I id);
 
     /**
-     * Retrieves an entity by id and detaches it from persistence context.
-     * <p/>
-     * This method should be used is special cases, like updating an entity by only by passing the immediately relevant information
-     * and has a property annotated with {@link javax.persistence.Version} which you also want to set.
-     *
-     * @param id must not be null
-     * @return the corresponding entity or null if the given id is not present
-     * @throws IllegalArgumentException if id is null
-     */
-    T findOneDetached(I id);
-
-    /**
      * Retrieves all the entities
      *
      * @return found entities or empty collection

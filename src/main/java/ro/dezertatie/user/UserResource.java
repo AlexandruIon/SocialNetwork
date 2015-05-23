@@ -25,14 +25,15 @@ public class UserResource {
 
 	@DELETE
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void deleteUser(User user) {
-		userService.delete(user);
+	@Path("/{userId}")
+	public void deleteUser(@PathParam("userId") String userId) {
+		userService.deleteById(userId);
 	}
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/{userId}")
-	public User getUser(@PathParam("userId") Long userId) {
+	public User getUser(@PathParam("userId") String userId) {
 		return userService.get(userId);
 	}
 }

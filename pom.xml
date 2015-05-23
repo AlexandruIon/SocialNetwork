@@ -10,7 +10,7 @@
 
 	<properties>
 		<javaee.version>7.0</javaee.version>
-		<kundera.version>2.16</kundera.version>
+		<kundera.version>2.17</kundera.version>
 	</properties>
 	<dependencies>
 
@@ -24,7 +24,7 @@
 		<!--kundera-->
 		<dependency>
 			<groupId>com.impetus.kundera.client</groupId>
-			<artifactId>kundera-cassandra</artifactId>
+			<artifactId>kundera-mongo</artifactId>
 			<version>${kundera.version}</version>
 		</dependency>
 

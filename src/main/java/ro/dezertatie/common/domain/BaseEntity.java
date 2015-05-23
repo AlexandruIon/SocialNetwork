@@ -1,16 +1,17 @@
 package ro.dezertatie.common.domain;
 
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @MappedSuperclass
-public class BaseEntity<I extends Serializable> implements Serializable {
+public abstract class BaseEntity<I extends Serializable> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private I id;
 
 	protected BaseEntity() {
@@ -20,8 +21,6 @@ public class BaseEntity<I extends Serializable> implements Serializable {
 		this.id = id;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public I getId() {
 		return id;
 	}
