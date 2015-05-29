@@ -5,8 +5,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.Collection;
 
-@Path("/user")
+@Path(UserResource.PATH)
 public class UserResource {
+
+	public static final String PATH = "users";
 
 	@Inject
 	private UserService userService;
@@ -21,6 +23,18 @@ public class UserResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Collection<User> getUsers() {
 		return userService.getAll();
+	}
+
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/{userId }")
+	public User update(User user) {
+		User userFound = userService.get(user.getId());
+		if (userFound == null) {
+			throw new UserException("User not found");
+		}
+		return userService.update(user);
 	}
 
 	@DELETE

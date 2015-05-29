@@ -15,9 +15,7 @@ public class User extends BaseEntity<String> {
 
 	private static final long serialVersionUID = 1L;
 
-	//	@Id
-//	@Column(name="id")
-//	private String id;
+
 	@Column(name = "column")
 	private String username;
 	@Column(name = "password")
@@ -26,15 +24,6 @@ public class User extends BaseEntity<String> {
 	private Boolean enabled = Boolean.TRUE;
 	@Column(name = "person_id")
 	private Person person;
-
-
-//	public String getId() {
-//		return id;
-//	}
-//
-//	public void setId(String id) {
-//		this.id = id;
-//	}
 
 	public User() {
 	}
