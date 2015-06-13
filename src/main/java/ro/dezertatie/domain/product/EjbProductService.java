@@ -3,9 +3,11 @@ package ro.dezertatie.domain.product;
 
 import org.apache.commons.lang.NullArgumentException;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.Collection;
 
+@Stateless
 public class EjbProductService implements ProductService {
 
     @Inject

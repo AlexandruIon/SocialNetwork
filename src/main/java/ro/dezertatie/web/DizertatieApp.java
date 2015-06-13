@@ -4,5 +4,5 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 @ApplicationPath("/api")
-public class DezertatieApp extends Application {
+public class DizertatieApp extends Application {
 }

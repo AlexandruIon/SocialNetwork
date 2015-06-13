@@ -3,9 +3,11 @@ package ro.dezertatie.domain.address;
 
 import org.apache.commons.lang.NullArgumentException;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import java.util.Collection;
 
+@Stateless
 public class EjbAddressService implements AddressService {
 
     @Inject
