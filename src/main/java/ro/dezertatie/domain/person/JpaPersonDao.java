@@ -1,4 +1,4 @@
-package ro.dezertatie.person;
+package ro.dezertatie.domain.person;
 
 import ro.dezertatie.common.dao.JpaCrudDao;
 

@@ -6,8 +6,8 @@
 
 	<persistence-unit name="mongo-pu">
 		<provider>com.impetus.kundera.KunderaPersistence</provider>
-		<class>ro.dezertatie.user.User</class>
-		<class>ro.dezertatie.person.Person</class>
+		<class>ro.dezertatie.domain.user.User</class>
+		<class>ro.dezertatie.domain.person.Person</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>
@@ -27,8 +27,8 @@
 	<persistence-unit name="cassandra_pu">
 		<provider>com.impetus.kundera.KunderaPersistence</provider>
 
-		<class>ro.dezertatie.user.User</class>
-		<class>ro.dezertatie.person.Person</class>
+		<class>ro.dezertatie.domain.user.User</class>
+		<class>ro.dezertatie.domain.person.Person</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 
 		<properties>

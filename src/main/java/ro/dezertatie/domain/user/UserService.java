@@ -1,4 +1,4 @@
-package ro.dezertatie.user;
+package ro.dezertatie.domain.user;
 
 
 import ro.dezertatie.common.service.CrudService;

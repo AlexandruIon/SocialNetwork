@@ -1,8 +1,8 @@
-package ro.dezertatie.user;
+package ro.dezertatie.domain.user;
 
 
 import ro.dezertatie.common.domain.BaseEntity;
-import ro.dezertatie.person.Person;
+import ro.dezertatie.domain.person.Person;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

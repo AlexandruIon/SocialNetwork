@@ -1,4 +1,4 @@
-package ro.dezertatie.person;
+package ro.dezertatie.domain.person;
 
 import javax.inject.Inject;
 import javax.websocket.server.PathParam;

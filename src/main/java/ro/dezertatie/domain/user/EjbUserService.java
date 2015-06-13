@@ -1,4 +1,4 @@
-package ro.dezertatie.user;
+package ro.dezertatie.domain.user;
 
 import org.apache.commons.lang.NullArgumentException;
 

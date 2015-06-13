@@ -1,4 +1,4 @@
-package ro.dezertatie.user;
+package ro.dezertatie.domain.user;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
